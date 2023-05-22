@@ -1,5 +1,6 @@
 
 from flask import Flask ,render_template,request
+from waitress import serve
 import pandas as pd
 import pickle
 import numpy as np
@@ -33,4 +34,4 @@ def predict():
     return str(np.round(prediction[0],2))
 
 if __name__=="__main__":
-    app.run()
+    serve(app, host="0.0.0.0", port=8080)
