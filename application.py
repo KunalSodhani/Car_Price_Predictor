@@ -1,11 +1,13 @@
 
 from flask import Flask ,render_template,request
+from flask_cors import CORS
 from waitress import serve
 import pandas as pd
 import pickle
 import numpy as np
 
 app=Flask(__name__)
+CORS(app)
 
 model = pickle.load(open("LinearRegressionModel.pkl",'rb') )
 car=pd.read_csv('cleaned_car.csv')
